@@ -14,8 +14,10 @@ public class Main {
         System.out.println("  |  |  \n--+--+--\n  |  |  \n--+--+--\n  |  |  ");
         System.out.println("Where would you like to play(1-9)? ");
         int num = s.nextInt();
-        //printBord(array);
-
+        while (!isValid(array,num)){
+             System.out.println("Is not a valid move ");
+             num = s.nextInt();
+        }
         do {
             array = fill(array,num,'X');
             printBord(array);
@@ -23,7 +25,6 @@ public class Main {
                 System.out.println("You Win ! ");
                 break;
             }
-            //random = (int) Math.floor(Math.random() * 10);
             random = (int)(Math.random()*(10)+1);
             while (!isValid(array,random)){
                 random = (int)(Math.random()*(10)+1);
